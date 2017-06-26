@@ -1,0 +1,29 @@
+---
+title: "second_try"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(igraph)
+```
+
+```{r}
+nodes <- read.csv("/Users/yunting/Desktop/R_network/netscix2016/Dataset1-Media-Example-NODES.csv", header=T, as.is=T)
+links <- read.csv("/Users/yunting/Desktop/R_network/netscix2016/Dataset1-Media-Example-EDGES.csv", header=T, as.is=T)
+#head(nodes)
+#head(links)
+
+links <-aggregate(links[,3], links[,-3], sum)
+links <- links[order(links$from, links$to),]
+colnames(links)[1]
+colnames(links)[2]
+colnames(links)[3]
+colnames(links)[4]
+rownames(links)
+
+```

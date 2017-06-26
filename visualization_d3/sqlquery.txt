@@ -1,0 +1,20 @@
+
+SELECT DISTINCT cbi.SUB_ID as IND_TO_COM, cbi.TRANSACTION_AMT, cbi.NAME as IND_NAME, cm.CMTE_NM
+	FROM Candidate cand
+	LEFT JOIN contri_to_can_from_com ctcfc ON cand.CAND_ID = ctcfc.CAND_ID
+	LEFT JOIN Committee cm ON cm.CMTE_ID = ctcfc.CMTE_ID
+	LEFT JOIN contri_by_indv cbi ON cbi.CMTE_ID = cm.CMTE_ID
+	WHERE CAND_NAME = 'OBAMA, BARACK' OR CAND_NAME = 'ROMNEY, MITT / RYAN, PAUL D. ';
+
+
+SELECT DISTINCT ctcfc.SUB_ID as COM_TO_CAND, ctcfc.TRANSACTION_AMT ,cm.CMTE_NM ,CAND_NAME
+	FROM Candidate cand
+	LEFT JOIN contri_to_can_from_com ctcfc ON cand.CAND_ID = ctcfc.CAND_ID
+	LEFT JOIN Committee cm ON cm.CMTE_ID = ctcfc.CMTE_ID
+	LEFT JOIN contri_by_indv cbi ON cbi.CMTE_ID = cm.CMTE_ID
+	WHERE CAND_NAME =  ('OBAMA, BARACK' OR CAND_NAME = 'ROMNEY, MITT / RYAN, PAUL D. ') AND ctcfc.TRANSACTION_AMT > 1000;
+
+
+
+######
+cand -> can_from_com -> com -> contri_by_indv
