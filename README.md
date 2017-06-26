@@ -1,3 +1,5 @@
+# US-campaign-financial-network
+
 the CREATE and INSERT function had basically been done. 
 I've tested the code with data in 2018 and inserted the data into si608.db.
 
@@ -13,5 +15,4 @@ Please refer to construct_database.py for more details!
 Sorry for my bad coding style, the variable names are very long.
 Feel free to optimize the code!! It is currently not so clean lol.
 
-Have a wonderful spring break!
-# US-campaign-financial-network
+
